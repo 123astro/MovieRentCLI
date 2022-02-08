@@ -13,12 +13,11 @@ public class UserInterface {
             System.out.println(question + "\nInput: ");
             String inputString = scanner.nextLine();
 
-            if (!inputString.trim().equals("")) {
+            if (!inputString.trim().equals("")) { // if it is not an empty string return it
                 return inputString.trim();
             }
             System.out.println("You must enter something");
         }
-
     }
 //    public static int readInt(String question) {
 //        System.out.println(question + "\nNumber: ");
@@ -54,7 +53,7 @@ public class UserInterface {
         }
     }
 
-    public static boolean yerOrNo(String question) {
+    public static boolean yerOrNo(String question) {  // uses => while loop break
         while (true) {
             System.out.println("\n" + question + "\ny/n");
             String rawInputString = scanner.nextLine();

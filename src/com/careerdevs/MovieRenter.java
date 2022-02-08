@@ -11,7 +11,7 @@ public class MovieRenter {
     public MovieRenter(String name, int wallet) {
         this.name = name;
         this.wallet = wallet;
-        this.moviesRented = new ArrayList<>();
+        this.moviesRented = new ArrayList<>(); // movies this customer has taken out
 
     }
 

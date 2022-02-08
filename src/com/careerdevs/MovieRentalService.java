@@ -10,14 +10,14 @@ public class MovieRentalService {
 
     // Movie Storage
     private static MovieRenter movieRenter;  // declaring fields
-    private static ArrayList<Movie> movieStorage;
+    private static ArrayList<Movie> movieStorage; // all the movies in the store
 
     //Movie rental menus
 
     public static void main(String[] args) {
         System.out.println("MOVIE RENTAL SERVICE\n\n");
-        //movieRenter = createMovieRenter();
-        movieRenter = new MovieRenter("Jon", 10000); // create an instance of MovieRenter
+        movieRenter = createMovieRenter();
+        //movieRenter = new MovieRenter("Jon", 10000); // create an instance of MovieRenter
         initializeMovies();
 
         mainMenu();
@@ -40,10 +40,10 @@ public class MovieRentalService {
 
 
     private static void initializeMovies() {
-        movieStorage = new ArrayList<Movie>();
+        movieStorage = new ArrayList<Movie>();  // instantiate a new ArrayList
         movieStorage.add(new Movie("Matrix 1", "SciFi", 1000));
         movieStorage.add(new Movie("Matrix 2", "SciFi", 100));
-        movieStorage.add(new Movie("Matrix 3", "SciFi", 50));
+        movieStorage.add(new Movie("Matrix 3", "SciFi", 51));
         movieStorage.add(new Movie("Matrix 4", "SciFi", 500));
 
 
@@ -69,7 +69,6 @@ public class MovieRentalService {
             System.out.println("Your name is " + name + " and you will start with $" + startMoney + ".00");
             boolean confirmation = UserInterface.yerOrNo("Do you confirm your choices? ");
             if (confirmation) break;
-
         }
 
         System.out.println("Okay you can rent movies now " + name);
@@ -82,10 +81,10 @@ public class MovieRentalService {
         return decimalFormat.format(num);
     }
 
-    private static String changeMoneyToDollars(int num) {
-        DecimalFormat decimalFormat = new DecimalFormat("\u00a4#,##0.00");
-        return decimalFormat.format(num);
-    }
+//    private static String changeMoneyToDollars(int num) {
+//        DecimalFormat decimalFormat = new DecimalFormat("\u00a4#,##0.00");
+//        return decimalFormat.format(num);
+//    }
 
 
     private static void rentMovieMenu() {
@@ -113,7 +112,7 @@ public class MovieRentalService {
         confirming += "\nTotal Price: " + changeMoneyToDollars(totalAmt / 100);
 
         if (UserInterface.yerOrNo(confirming)) {
-            int paidAmt = movieRenter.payWithWallet((int)totalAmt);
+            int paidAmt = movieRenter.payWithWallet((int)totalAmt); //
             if (paidAmt != 0) {
                 movieStorage.remove(rentedMovie); // remove from storage and add to renter
                 movieRenter.addMovie(rentedMovie);
